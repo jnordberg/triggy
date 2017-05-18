@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
+    </dependencies>
+    <scenes>
+        <!--inactive-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="inactive" hidesWhenLoading="NO" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="triggy_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label width="156" height="181" alignment="left" textAlignment="center" numberOfLines="4" id="YEs-OV-AO4" propertyAccessControl="none">
+                            <accessibilityTraits key="accessibilityTraits" button="YES" staticText="YES"/>
+                            <string key="text">Not connected 
+Start Triggy on your phone</string>
+                        </label>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="171.74358974358975" y="344.79487179487182"/>
+        </scene>
+        <!--search-->
+        <scene sceneID="JKa-RT-lS9">
+            <objects>
+                <controller identifier="search" hidesWhenLoading="NO" id="wns-vy-T63">
+                    <items>
+                        <label width="156" height="181" alignment="left" text="Looking for camera" textAlignment="center" numberOfLines="2" id="P2g-zS-ITJ" propertyAccessControl="none">
+                            <accessibilityTraits key="accessibilityTraits" button="YES" staticText="YES"/>
+                        </label>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="437" y="345"/>
+        </scene>
+        <!--config-->
+        <scene sceneID="yKg-4x-ezv">
+            <objects>
+                <controller identifier="config" id="tC6-6i-s4Y" customClass="ConfigController" customModule="triggy_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="114" alignment="left" verticalAlignment="center" layout="vertical" id="hzE-OV-b38">
+                            <items>
+                                <label alignment="center" text="Capture interval" id="qX8-SY-BBH"/>
+                                <label alignment="center" text="10s" id="AN1-xg-q6O">
+                                    <fontDescription key="font" type="system" weight="light" pointSize="40"/>
+                                </label>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Start" id="5If-DM-lDX">
+                            <color key="backgroundColor" red="0.76470588240000004" green="0.0" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="startCapture" destination="tC6-6i-s4Y" id="4sn-2g-OV2"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="button" destination="5If-DM-lDX" id="VEH-qv-za4"/>
+                        <outlet property="label" destination="AN1-xg-q6O" id="y9l-xQ-JIK"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="689.58974358974365" y="344.79487179487182"/>
+        </scene>
+        <!--capturing-->
+        <scene sceneID="XWQ-Pi-sLw">
+            <objects>
+                <controller identifier="capturing" id="fca-Ot-nxe" customClass="CapturingController" customModule="triggy_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="eHH-Ll-1Ox">
+                            <items>
+                                <label alignment="center" text="Next photo" id="iUM-h3-lyt"/>
+                                <label alignment="center" text="-" id="ybz-Yf-VGO">
+                                    <fontDescription key="font" type="system" weight="light" pointSize="40"/>
+                                </label>
+                                <label alignment="center" text="Photos taken" id="lBX-OB-Bcu"/>
+                                <label alignment="center" text="-" id="Swe-AL-knZ">
+                                    <fontDescription key="font" type="system" weight="light" pointSize="40"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <menu key="menu" id="bd5-dE-9ln">
+                        <items>
+                            <menuItem title="Stop capture" icon="decline" id="C1C-XW-2bm">
+                                <connections>
+                                    <action selector="stopCapture" destination="fca-Ot-nxe" id="DFt-e5-K1B"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="nextLabel" destination="ybz-Yf-VGO" id="ail-j2-rdc"/>
+                        <outlet property="takenLabel" destination="Swe-AL-knZ" id="yyL-KC-Of5"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="938.92307692307702" y="344.79487179487182"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="triggy_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>

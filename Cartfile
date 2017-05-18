@@ -1,0 +1,8 @@
+github "IBM-Swift/BlueSocket" ~> 0.12
+github "robbiehanson/CocoaAsyncSocket" "master"
+github "HamzaGhazouani/HGCircularSlider" "master"
+github "DrBreen/WindowAlert" "master"
+github "ashleymills/Reachability.swift" "master"
+github "Akkyie/AKPickerView-Swift"
+github "lukaskubanek/OrderedDictionary" "master"
+github "phimage/Arithmosophi" "master"
